@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Rms_Core_313.Repository</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rms-Core-313.DataBaseContext\Rms-Core-313.DataBaseContext.csproj" />
+    <ProjectReference Include="..\Rms-Core-313.Model\Rms-Core-313.Model.csproj" />
+  </ItemGroup>
+
+</Project>

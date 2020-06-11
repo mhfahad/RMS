@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Rms_Core_313.BLL</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rms-Core-313.Model\Rms-Core-313.Model.csproj" />
+    <ProjectReference Include="..\Rms-Core-313.Repository\Rms-Core-313.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

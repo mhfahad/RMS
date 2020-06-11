@@ -1,0 +1,71 @@
+﻿@model Rms_Core_313.Models.MenuCreateVm
+@{
+    Layout = "~/Views/Shared/_LayoutDashvoard.cshtml";
+}
+@using (Html.BeginForm("Create", "MenuCreate", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+@Html.AntiForgeryToken()
+<h4>Create a new Menu</h4>
+<hr />
+@Html.ValidationSummary("", new { @class = "text-danger" })
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+    <div class="col-md-5">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control border border-primary" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CreateTypeId, new { @class = "col-md-3 control-label" })
+    <div class="col-md-5">
+        @Html.DropDownListFor(m => m.CreateTypeId, Model.TypeList, new { @class = "form-control dd-type" })
+
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Price, new { @class = "col-md-3 control-label" })
+    <div class="col-md-5">
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control border border-primary" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Discriptions, new { @class = "col-md-3 control-label" })
+    <div class="col-md-5">
+        @Html.TextBoxFor(m => m.Discriptions, new { @class = "form-control border border-primary" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Data, new { @class = "col-md-3 control-label" })
+    <div class="col-md-5">
+        <input class="form-control" type="file" name="Images" onchange="fileCheck(this);" />
+
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" class="btn btn-default border border-primary" value="Add" />
+    </div>
+</div>
+}
+
+@section Scripts {
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+
+    <script type="text/javascript">
+
+        function fileCheck(obj) {
+            var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+            if ($.inArray($(obj).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                alert("Only '.jpeg','.jpg', '.png', '.gif', '.bmp' formats are allowed.");
+            }
+            else {
+                alert("Done");
+            }
+
+        }
+    </script>
+}
+
+

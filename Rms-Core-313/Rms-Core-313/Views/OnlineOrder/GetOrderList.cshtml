@@ -1,0 +1,130 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@model Rms_Core_313.Models.Vm.OrderPlaceVm
+@{
+    ViewData["Title"] = "GetOrderList";
+    Layout = "~/Views/Shared/_LayoutDashvoard.cshtml";
+}
+
+<h1 style="text-align:center">Order List</h1>
+
+<div class="row center">
+    <div class="container" style="margin-left:5%">
+
+        <div class="col-lg-10" style="margin-left:0">
+
+            <table class="table table-striped row">
+
+                <tr>
+
+                    <th>Sl</th>
+                    <th>Order Id</th>
+
+                    <th>User Id</th>
+                    <th>Phone</th>
+                    <th>Order Date</th>
+                    <th>Payment </th>
+                    <th class="col-2">Dish Name</th>
+                    <th>Total Quantity</th>
+                    <th>Total Price</th>
+                    <th>Action</th>
+                </tr>
+
+
+                @{int sl = 1; }
+                @foreach (var i in Model.OrderPlaces)
+                {
+                    <tr>
+                        <td>@(sl++ )</td>
+                        <td>
+                            @i.Id
+
+                        </td>
+                        <td>
+                            @i.UserId
+
+                        </td>
+                        <td>
+                            @i.ReciverPhone
+
+                        </td>
+                        <td>@i.date</td>
+                        <td>
+                            @if (i.IsCashOnDelivery == "on")
+                            {
+                                <h6>Cash on delivery</h6>
+                            }
+                            else
+                            {
+
+                                <h6>Srtipes </h6>
+                            }
+                        </td>
+
+                        <td>
+                            @foreach (var item in i.OrderPlaceDetails)
+                            {
+
+                                @item.menusCreate.Name;<br />
+
+                            }
+
+                        </td>
+                        <td>
+                            @{var dataQ = 0;}
+                            @foreach (var item in i.OrderPlaceDetails)
+                            {
+
+                                dataQ += item.Quantity;
+                            }
+                            @dataQ
+                        </td>
+                        <td>
+                            @{var dataprice = 0.00;}
+                            @foreach (var item in i.OrderPlaceDetails)
+                            {
+
+                                dataprice += item.Price;
+                            }
+                            @dataprice
+                        </td>
+
+
+                        <td>
+                            @if (i.IsInKichen == false)
+                            {
+                                <button class="btn btn-success Kitchen" style="font-size:small" data-orderID=" @i.Id" name="Name">Kitchen</button>
+
+                            }
+                            else if (i.IsDelivering == false)
+                            {
+                                <button class="btn btn-primary Delivering" style="font-size:small" data-orderID=" @i.Id" name="Name">Delivering</button>
+                            }
+                            else if (i.IsRecived == true)
+                            {
+
+                                <h6 style="color:forestgreen">Delivered</h6>
+                            }
+                            else
+                            {
+                                <h6 class="text-info">Delivering </h6>
+                            }
+                        </td>
+
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/RMS/OrderOnline.js"></script>
+
+}

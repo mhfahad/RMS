@@ -1,0 +1,172 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>RESTETO - Modern Restaurant Premium Template</title>
+    <!--  FAVICON  -->
+    <link rel="shortcut icon" href="~/favicon.ico" />
+    <!--  //FAVICON  -->
+    <!--  JQUERY CSS  -->
+    <link rel="stylesheet" type="text/css" href="~/style/jquery/magnific-popup.css" />
+    <!--  //JQUERY CSS  -->
+    <!--  ANIMATE CSS  -->
+    <link rel="stylesheet" type="text/css" href="~/style/animate/animate.css" />
+    <!--  //ANIMATE CSS  -->
+    <!--  FONTS  -->
+    <link href='https://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="~/style/font-awesome.min.css" />
+    <!--  //FONTS  -->
+    <!--  CSS  -->
+    <link rel="stylesheet" type="text/css" href="~/style/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/switch.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/style.css" />
+    <!--  //CSS  -->
+    <!--  THEMES COLOR STYLE  -->
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/yellow.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/turquoise.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/pink.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/purple.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/green.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/red.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/blue.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/lightgreen.color.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/template_color/lightred.color.css" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!--  //THEMES COLOR STYLE  -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaXCxqnCwD2cQ4RE_WuFfW0ECKkYBelhU&sensor=true"></script>
+    <script type="text/javascript" src="~/scripts/Template/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/scripts/Template/jquery/jquery.mb.YTPlayer.js"></script>
+
+    <script src="~/Scripts/Template/jquery/jquery.parallax-1.1.3.js"></script>
+    <script src="~/Scripts/Template/jquery/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="~/scripts/Template/jquery.countTo.js"></script>
+    <script type="text/javascript" src="~/scripts/Template/jquery.scrollTo-min.js"></script>
+    <script type="text/javascript" src="~/scripts/Template/jquery.magnific-popup.min.js"></script>
+    <!--  //JQUERY SCRIPT  -->
+    <!--  BOOTSTRAP SCRIPT  -->
+    @*<script type="text/javascript" src="~/scripts/template/bootstrap/bootstrap.min.js"></script>*@
+    <!--  //BOOTSTRAP SCRIPT  -->
+    <!--  SITE SCRIPT  -->
+    <script type="text/javascript" src="~/scripts/template/custom.script.js"></script>
+
+</head>
+<body>
+
+   
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:black">
+        <div class="container">
+            <div class="navbar-header">
+               
+                @Html.ActionLink("Nimontron", "Index", "Home", new { area = "" }, new { @class = "logo pull-left slide-page" })
+          
+            </div>
+            <em id="mobileMenu" class="glyph fa-bars mobile-menu"></em>
+        <div class="navbar-collapse collapse">
+            <ul id="mainNavi" class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Order Online", "Create", "OnlineOrder")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+            </ul>
+
+
+            <partial name="_LoginPartial" />
+
+
+        </div>
+        </div>
+    </nav>
+
+    <div class="">
+       
+        @RenderBody()
+        <hr />
+        <!--  FOOTER  -->
+        <footer class="footer">
+            <div class="container">
+                <article class="opening">
+                    <div class="row" style="margin-left : 2%">
+                        <strong>Opening Hours</strong>
+                        <div class="opening-hours">
+                            <span>Monday</span>
+                            <div>10:00 - 22:00</div>
+                        </div>
+                        <div class="opening-hours">
+                            <span>Tuedays</span>
+                            <div>10:00 - 22:00</div>
+                        </div>
+                        <div class="opening-hours">
+                            <span>Wednesdays</span>
+                            <div>10:00 - 22:00</div>
+                        </div>
+                        <div class="opening-hours">
+                            <span>Thursdays</span>
+                            <div>10:00 - 22:00</div>
+                        </div>
+                        <div class="opening-hours">
+                            <span>Fridays</span>
+                            <div>10:00 - 22:00</div>
+                        </div>
+                        <div class="opening-hours">
+                            <span>Saturdays</span>
+                            <div>12:00 - 24:00</div>
+                        </div>
+                        <div class="opening-hours">
+                            <span>Sundays</span>
+                            <div>CLOSED</div>
+                        </div>
+                    </div>
+                </article>
+                <article class="address row" style="margin-left : 2%; margin-right: 5%">
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="clearfix">
+                            <strong class="pull-left">Address</strong>
+                            <span>Restetro Restaurant<br>25 Bich St., New York, NY 10002<br><br></span>
+                            <a id="showMap" href="">SHOW ON THE MAP</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="clearfix">
+                            <strong class="pull-left">Phone</strong>
+                            <span class="phone">+1 234-242-9599</span>
+                        </div>
+                        <div class="clearfix">
+                            <strong class="pull-left">E-mail</strong>
+                            <a href="">info@resteto.com</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="share-button">
+                            <a class="glyph fa-twitter" href=""></a>
+                            <a class="glyph fa-facebook" href=""></a>
+                            <a class="glyph fa-linkedin" href=""></a>
+
+
+                        </div>
+                        <span>© Evatheme 2014 . All Rights Reserved.</span>
+                    </div>
+                </article>
+                <a href="#home" class="glyph fa-angle-up move-up slide-page"></a>
+            </div>
+        </footer>
+        <!--  //FOOTER  -->
+    </div>
+
+
+    <!--  JQUERY SCRIPT  -->
+  
+    @RenderSection("scripts", required: false)
+
+   
+    <!--  //SITE SCRIPT  -->
+</body>
+</html>

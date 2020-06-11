@@ -1,0 +1,84 @@
+﻿@model Rms_Core_313.Models.Vm.TableBookingCreateVm
+@{
+    ViewBag.Title = "GetBookingList";
+    Layout = "~/Views/Shared/_LayoutDashvoard.cshtml";
+}
+
+<h2>GetBookingList</h2>
+
+<div class="row center">
+    <div class="container" style="margin-left:1%">
+
+        <div class="col-lg-10" style="margin-left:0">
+
+            <table class="table table-striped row">
+
+                <tr>
+                    <th>Sl</th>
+                    <th>Booking Name</th>
+                    <th>Guest Amount</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Note</th>
+                    <th>Is Mail Confirm</th>
+                    <th>Action</th>
+                </tr>
+
+
+                @{int sl = 1; }
+                @foreach (var i in Model.tableBookingCreates)
+                {
+                    <tr>
+                        <td>@(sl++ )</td>
+                        <td>@i.Name</td>
+                        <td>@i.GuestAmount</td>
+                        <td>@i.Phone</td>
+                        <td>@i.Email</td>
+                        <td>@i.Date</td>
+                        <td>@i.Note</td>
+
+                        <td>
+                            @if (i.IsMailConfirm)
+                            {
+                                <h6>Yes</h6>
+                            }
+                            else
+                            {
+                                <h6>No</h6>
+                            }
+
+                        </td>
+                        <td>
+                            @if (i.IsBokkingConfirm && i.IsReject==false)
+                            {
+                                <h6 class="text text-info">Confirmed</h6>
+
+                            }
+                            else if (i.IsReject && i.IsBokkingConfirm==false)
+                            {
+                                <h6 class="text text-danger">Rejected</h6>
+                            }
+                            else
+                            {
+                                <a id=@i.Id class="btn btn-outline-primary Confirm" name="Name">Confirm</a>
+                                <br />
+                                <a id=@i.Id class="btn btn-outline-danger Reject" name="Name">Reject</a>
+                            }
+                        </td>
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+
+@section scripts{
+    <script src="~/Scripts/RMS/OrderOnline.js"></script>
+
+}

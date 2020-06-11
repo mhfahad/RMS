@@ -1,0 +1,90 @@
+﻿@model Rms_Core_313.Models.MenuCreateVm
+@{
+    ViewBag.Title = "GetMenuList";
+    Layout = "~/Views/Shared/_LayoutDashvoard.cshtml";
+}
+
+<h2>Menu List</h2>
+
+
+<div class="row center">
+    <div class="container" style="margin-left:5%">
+
+        <div class="col-lg-10" style="margin-left:0">
+
+            <table class="table table-striped row">
+
+                <tr>
+
+                    <th>Sl</th>
+                    <th>Photo</th>
+                    <th>Food Name</th>
+                    <th>Price</th>
+                    <th>Discriptions</th>
+                    <th>Food Type</th>
+
+                    <th>Active</th>
+                    <th>Action</th>
+                </tr>
+
+
+                @{int sl = 1; }
+                @foreach (var i in Model.Menus)
+                {
+                    <tr>
+                        <td>@(sl++ )</td>
+                        <td>
+
+                            @if (i.Data != null)
+                            {
+                                var base64 = Convert.ToBase64String(i.Data);
+                                var imgsrc = string.Format("data:image/png;base64,{0}", base64);
+                                <img src='@imgsrc' style="max-width:100px;max-height:100px" />
+                            }
+                            else
+                            {
+                                <img src='~/images/No-Image-Available.jpg' style="max-width:100px;max-height:100px" />
+                            }
+                        </td>
+                        <td>@i.Name</td>
+                        <td>@i.Price</td>
+                        <td>@i.Discriptions</td>
+                        <td>@i.CreateType.Name</td>
+
+                        <td>
+                            @if (i.Active)
+                            {
+                                <input type="checkbox" checked="checked" class="checkbox" id="@i.Id">
+                            }
+                            else
+                            {
+                                <input type="checkbox" class="checkbox" id="@i.Id">
+                            }
+
+
+
+                        </td>
+                        <td>
+
+                            <a href="~/MenuCreate/Delete?id=@i.Id" class="btn btn-danger" style="font-size:small" name="Name">Remove</a>
+                        </td>
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts {
+    <script src="~/Scripts/RMS/MenuList.js"></script>
+   
+}
+
+
+
+
+

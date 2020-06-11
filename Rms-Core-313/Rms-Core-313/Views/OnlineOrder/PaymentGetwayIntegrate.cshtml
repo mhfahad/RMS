@@ -1,0 +1,26 @@
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<Rms_Core_313.Models.StripeSetting> Stripe
+@model Rms_Core_313.Models.StripeSetting
+@{
+    ViewData["Title"] = "PaymentGetwayIntegrate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h3 style="margin-top:10%;text-align:center" >Complite Your Payment</h3>
+
+    <div class="text-center">
+        <form asp-controller="OnlineOrder" asp-action="PaymentGetwayIntegrate" method="post">
+            <article>
+                <label>
+                    Amount:£ @Model.Amount
+                </label>
+            </article>
+            <script src="//checkout.stripe.com/v2/checkout.js"
+                    class="stripe-button"
+                    data-key="@Stripe.Value.Publishablekey"
+                    data-locale="auto"
+                    data-description="Sample Charge"
+                    data-amount="@(Model.Amount * 100)">
+            </script>
+        </form>
+    </div>

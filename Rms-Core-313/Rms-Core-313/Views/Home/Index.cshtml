@@ -1,0 +1,385 @@
+﻿@model Rms_Core_313.Models.MenuCreateVm
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<section id="home" class="home">
+    <!--  HOME  -->
+    <!--  TOP SLIDER  -->
+    <div class="flexslider" style=" margin-top:3%">
+        <ul class="slides">
+            <li>
+                <div class="slider-text-wrapper first">
+                    <div class="slider-logo">Nimontron</div>
+                    <div class="middle">moder Restaurant html template</div>
+                    <div class="big">Italian Restaurant</div>
+                    <div class="dot"></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet est non porttitor consectetur. Nulla eleifend arcu eu neque elementum ornare.</p>
+                    <a class="button slide-page" href="#restaurant">
+                        <span>welcome</span>
+                        <span>Get started</span>
+                    </a>
+                </div>
+                <img class="parallax" src="~/images/big-slider/1.jpg" alt="">
+            </li>
+            <li>
+                <div class="slider-text-wrapper second">
+                    <div class="slider-logo">Nimontron</div>
+                    <div class="middle">creative Restaurant html template</div>
+                    <div class="big">Amazing Restaurant</div>
+                    <div class="dot"></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet est non porttitor consectetur. Nulla eleifend arcu eu neque elementum ornare.</p>
+                    <a class="button slide-page" href="#restaurant">
+                        <span>welcome</span>
+                        <span>Get started</span>
+                    </a>
+                </div>
+                <img class="parallax" src="~/images/big-slider/2.jpg" alt="">
+            </li>
+            <li>
+                <div class="slider-text-wrapper third">
+                    <div class="slider-logo">Nimontron</div>
+                    <div class="middle">comfortable Restaurant html template</div>
+                    <div class="big">Delicious Restaurant</div>
+                    <div class="dot"></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet est non porttitor consectetur. Nulla eleifend arcu eu neque elementum ornare.</p>
+                    <a class="button slide-page" href="#restaurant">
+                        <span>welcome</span>
+                        <span>Get started</span>
+                    </a>
+                </div>
+                <img class="parallax" src="~/images/big-slider/3.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <img class="scroll-image" src="~/images/icons/scroll.png" alt="">
+    <!--  //TOP SLIDER  -->
+</section>
+<!--  //HOME  -->
+<!--  RESTAURANT  -->
+<section id="restaurant" class="restaurant animate" style="background-image:url('http://vips-restaurant.com/images/about/1.jpg')">
+    <div class="container">
+        <div class="title">
+            <div>about restaurant</div>
+            Welcome to Nimontron
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 restaurant-block">
+                <img src="~/images/about/1.png" alt="">
+                <div class="block-title">Restaurant Story</div>
+                <div class="dot"></div>
+                <p class="mini">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie. Vestibulum id dui quis erat vehicula pulvinar. Duis eu felis justo, vitae viverra dui. Pellentesque venenatis mi vel sapien adipiscing venenatis.</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 restaurant-block">
+                <img src="~/images/about/2.png" alt="">
+                <div class="block-title">Chef Antonia Bonucchi</div>
+                <div class="dot"></div>
+                <p class="mini">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie. Vestibulum id dui quis erat vehicula pulvinar. Duis eu felis justo, vitae viverra dui. Pellentesque venenatis mi vel sapien adipiscing venenatis.</p>
+            </div>
+        </div>
+    </div>
+    @*<img class="imasrc" src='~/images/about/1.jpg' alt="">*@
+</section>
+<!--  //RESTAURANT  -->
+<!--  MENU  -->
+<section id="menu" class="menu animate">
+    <div class="clearfix">
+        @if (Model.Menus != null)
+        {
+            @foreach (var i in Model.Menus)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 menu-block">
+                    @if (i.Data != null)
+                    {
+                        var base64 = Convert.ToBase64String(i.Data);
+                        var imgsrc = string.Format("data:image/png;base64,{0}", base64);
+                        <img src='@imgsrc'>
+                    }
+                    else
+                    {
+                        <img src='~/images/No-Image-Available.jpg' />
+                    }
+                    <div>
+                        <div class="position">
+                            <em class="glyph fa-fire"></em>
+                            <span>@i.CreateType.Name</span>
+                        </div>
+                        <div class="food-name">@i.Name</div>
+                        <div class="price">$@i.Price</div>
+                        <p class="food-details">@i.Discriptions</p>
+                    </div>
+                </div>
+            }
+        }
+
+
+    </div>
+    <a class="more-food" href="">
+        <em class="glyph fa-repeat"></em>
+        <span>show other dishes</span>
+    </a>
+</section>
+<!--  //MENU  -->
+<!--  MENU POPUP  -->
+<section id="popup" class="popup">
+    <div class="clearfix">
+        <article class="col-lg-6 col-md-6 col-sm-6">
+            <img src="~/images/food/big/1.jpg" alt="">
+        </article>
+        <article class="col-lg-6 col-md-6 col-sm-6">
+            <div class="details-wrapper">
+                <div class="position">
+                    <em class="glyph fa-pagelines"></em>
+                    <span>Salads</span>
+                </div>
+                <div class="food-name">To Die for Crock Pot Roast</div>
+                <div class="price">$64.99</div>
+                <p class="food-details mini">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia qui ratione voluptatem.</p>
+            </div>
+        </article>
+        <a href="" class="button glyph prev fa-angle-left"></a>
+        <a href="" class="button close-button">Close</a>
+        <a href="" class="button glyph next fa-angle-right"></a>
+    </div>
+</section>
+<!--  //MENU  -->
+<!--  MENU POPUP  -->
+<section id="popup" class="popup">
+    <div class="clearfix">
+        <article class="col-lg-6 col-md-6 col-sm-6">
+            <img src="../images/food/big/1.jpg" alt="">
+        </article>
+        <article class="col-lg-6 col-md-6 col-sm-6">
+            <div class="details-wrapper">
+                <div class="position">
+                    <em class="glyph fa-pagelines"></em>
+                    <span>Salads</span>
+                </div>
+                <div class="food-name">To Die for Crock Pot Roast</div>
+                <div class="price">$64.99</div>
+                <p class="food-details mini">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia qui ratione voluptatem.</p>
+            </div>
+        </article>
+        <a href="" class="button glyph prev fa-angle-left"></a>
+        <a href="" class="button close-button">Close</a>
+        <a href="" class="button glyph next fa-angle-right"></a>
+    </div>
+</section>
+<!--  //MENU POPUP  -->
+<!--  ACHIEVMENT  -->
+<!--  //ACHIEVMENT  -->
+<!--  EVENTS  -->
+<section id="events" class="events images-bg animate">
+    <div class="container">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <div class="title bottom">
+                        <div>today from 20 pm</div>
+                        Valentines Party
+                    </div>
+                    <div class="dot"></div>
+                    <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie. Vestibulum id dui quis erat vehicula pulvinar. Duis eu felis justo, vitae viverra dui. Pellentesque venenatis mi vel sapien adipiscing venenatis.</p>
+                    <a class="button slide-page" href="#contacts">
+                        <span>welcome</span>
+                        <span>Book a table</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="title bottom">
+                        <div>Monday from 14 pm</div>
+                        Hollydays
+                    </div>
+                    <div class="dot"></div>
+                    <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie. Vestibulum id dui quis erat vehicula pulvinar. Duis eu felis justo, vitae viverra dui. Pellentesque </p>
+                    <a class="button slide-page" href="#contacts">
+                        <span>welcome</span>
+                        <span>Book a table</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="title bottom">
+                        <div>Friday from 19 pm</div>
+                        Birthday Party
+                    </div>
+                    <div class="dot"></div>
+                    <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie. Vestibulum id dui quis erat vehicula pulvinar. Duis eu felis justo, vitae viverra dui. Pellentesque venenatis mi vel sapien adipiscing venenatis</p>
+                    <a class="button slide-page" href="#contacts">
+                        <span>welcome</span>
+                        <span>Book a table</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <img src="../images/achievement/1.jpg" alt="" style="width:100%">
+    </div>
+    
+</section>
+<!--  //EVENTS  -->
+<!--  RESERVATION  -->
+<section id="reservation" class="reservation animate">
+    <div class="clearfix">
+        <div class="col-lg-3 col-md-3 col-sm-6 reservation-block">
+            <a href="../images/reservation/big/1.jpg">
+                <img src="../images/reservation/1.jpg" alt="">
+                <span>
+                    <em class="glyph fa-search"></em>
+                </span>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 reservation-block">
+            <a href="../images/reservation/big/2.jpg">
+                <img src="../images/reservation/2.jpg" alt="">
+                <span>
+                    <em class="glyph fa-search"></em>
+                </span>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 reservation-block">
+            <a href="../images/reservation/big/3.jpg">
+                <img src="../images/reservation/3.jpg" alt="">
+                <span>
+                    <em class="glyph fa-search"></em>
+                </span>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 reservation-block">
+            <a href="../images/reservation/big/4.jpg">
+                <img src="../images/reservation/4.jpg" alt="">
+                <span>
+                    <em class="glyph fa-search"></em>
+                </span>
+            </a>
+        </div>
+</section>
+<!--  //RESERVATION  -->
+<!--  COMMENT  -->
+<section class="comment animate">
+    <div class="container">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <em>“</em>
+                    <div class="block-title">Mary & Frank, Los Angeles</div>
+                    <div class="dot"></div>
+                    <p class="mini">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie. </p>
+                </li>
+                <li>
+                    <em>“</em>
+                    <div class="block-title">Andre & Monika, New York</div>
+                    <div class="dot"></div>
+                    <p class="mini">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie. </p>
+                </li>
+                <li>
+                    <em>“</em>
+                    <div class="block-title">Stiv & Anna, Detroit</div>
+                    <div class="dot"></div>
+                    <p class="mini">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie. </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--  //COMMENT  -->
+<!--  CONTACTS  -->
+<section id="contacts" class="contacts images-bg animate">
+    <div class="container">
+        <div class="title">
+            <div>come to us</div>
+            Book a Table
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <input id="name" placeholder="Name" type="text">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <input id="phone" placeholder="Phone" type="text">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <input id="Email" placeholder="Email" type="text">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <input id="Guest" placeholder="Guests (Amount)" type="text">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <input type="datetime-local" id="DateTime" class="form-control" style="color:black;height:100%">
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <input id="Note" placeholder="Note" type="text">
+            </div>
+        </div>
+        <div id="Loader">
+            <h5 style="border-radius: 4px; background-color:white; color:green; font-weight: bolder;"><img src="/../../images/Loader.gif" />Processing...</h5>
+        </div>
+        <a class="button" id="submit">
+            <span>welcome</span>
+            <span>Book a table</span>
+        </a>
+        <img src="~/images/contacts/1.jpg" alt=""  style="width:100%">
+    </div>
+    
+   
+   
+</section>
+<!--  //CONTACTS  -->
+<!--  BLOG  -->
+<section class="blog">
+    <div class="container">
+        <div class="title">
+            <div>News & articles</div>
+            Restaurant Blog
+        </div>
+        <div class="row">
+            <article class="col-lg-6 col-md-6 col-sm-6 blog-block">
+                <span class="date">SEPTEMBER 29, 2014</span>
+                <span class="label">FOOD</span>
+                <a class="name" href="blog.html">Chef Favorite dishes</a>
+                <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie.</p>
+            </article>
+            <article class="col-lg-6 col-md-6 col-sm-6 blog-block">
+                <span class="date">SEPTEMBER 29, 2014</span>
+                <span class="label">FOOD</span>
+                <a class="name" href="blog.html">choose the dishes</a>
+                <p class="mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar est eget odio porttitor molestie.</p>
+            </article>
+        </div>
+    </div>
+</section>
+<!--  //BLOG  -->
+
+@section scripts{
+
+    @*<script>
+               //$(document).ready(function () {
+                   //$(".date-picker").datepicker({ dateFormat: "dd/mm/yy", timeFormat: "hh:mm:ss", maxDate: "0" });
+                   //$('.date-picker').datetimepicker();
+                   //$(function () {
+                   //    $('#datetimepicker1').datetimepicker();
+                   //});
+               //});
+        </script>*@
+    <script src="~/Scripts/Template/custom.script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaXCxqnCwD2cQ4RE_WuFfW0ECKkYBelhU&sensor=true"></script>
+    <script type="text/javascript" src="~/scripts/template/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/scripts/template/jquery/jquery.mb.YTPlayer.js"></script>
+    <script type="text/javascript" src="~/scripts/template/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/Template/jquery/jquery.parallax-1.1.3.js"></script>
+
+    <script type="text/javascript" src="~/scripts/template/jquery.parallax-1.1.3.js"></script>
+    <script type="text/javascript" src="~/scripts/template/jquery.countTo.js"></script>
+    <script type="text/javascript" src="~/scripts/template/jquery.scrollTo-min.js"></script>
+    <script type="text/javascript" src="~/scripts/template/jquery.magnific-popup.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+
+
+
+}
+<!--  //MENU POPUP  -->

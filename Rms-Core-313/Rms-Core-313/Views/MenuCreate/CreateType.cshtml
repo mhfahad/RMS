@@ -1,0 +1,38 @@
+﻿@model Rms_Core_313.Models.Vm.CreateTypeVm
+@{
+    Layout = "~/Views/Shared/_LayoutDashvoard.cshtml";
+}
+
+<h2>CreateType</h2>
+@using (Html.BeginForm("CreateType", "MenuCreate", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+        <div class="col-md-5">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control border border-primary" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default border border-primary" value="Add" />
+        </div>
+    </div>
+
+}
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.js"></script>
+
+    <script type="text/javascript">
+
+        function fileCheck(obj) {
+            var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+            if ($.inArray($(obj).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                alert("Only '.jpeg','.jpg', '.png', '.gif', '.bmp' formats are allowed.");
+            }
+            else {
+                alert("Done");
+            }
+
+        }
+    </script>
+}

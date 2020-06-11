@@ -1,0 +1,31 @@
+﻿@model Rms_Core_313.Models.MenuCreateVm
+
+@foreach (var i in Model.Menus)
+{
+    <div class="col-lg-6 col-md-6 col-sm-7">
+
+        <div class="card" style="margin-bottom:3%">
+            @if (i.Data != null)
+            {
+                var base64 = Convert.ToBase64String(i.Data);
+                var imgsrc = string.Format("data:image/png;base64,{0}", base64);
+                <img src='@imgsrc' alt="Denim Jeans" style="width:100%">
+            }
+            else
+            {
+                <img src='~/images/No-Image-Available.jpg' style="width:100%" />
+            }
+            <h4>@i.Name </h4>
+            <h4 class="cost" style="color:grey">£ @i.Price </h4>
+            
+            <button id="@i.Id" class="submit" data-Price="@i.Price" data-Name="@i.Name">Add to Cart</button>
+
+        </div>
+    </div>
+   
+}
+
+
+<div style="margin-left:2%"></div>
+
+

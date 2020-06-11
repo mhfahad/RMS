@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Rms_Core_313.DataContext</RootNamespace>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,140 @@
+﻿@using Microsoft.AspNetCore.Identity;
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>
+<div>df</div>
+<div>df</div>
+<div>d</div>
+<div></div>
+<div></div>
+@if (ViewBag.Validdata == false)
+{
+    <input type="hidden" id="viewbaddata" value="true" />
+}
+else
+{
+    <input type="hidden" id="viewbaddata" value="false" />
+}
+<div class="container" style=" margin-top:2%">
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="alert alert alert-danger alert-dismissible fade in" role="alert" id="errorMsg" style="display: none">
+                <strong>Sorry! </strong> You have to add a phone no on receiver phone!
+            </div>
+            <div class="vertical-tab" role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs fixed-top" id="ul" role="tablist">
+                    <li role="presentation"><a class="AllData" aria-controls="home" role="tab" data-toggle="tab">All Food</a></li>
+
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content tabs" id="mainlist">
+                    <div role="tabpanel" class="tab-pane fade in active tabpanelData" id="tabpanelData">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="background-color:#353b48">
+            <div class="row">
+
+                <h2 style="margin-left:20px;">Your Order</h2>
+                <hr />
+                <div class="control">
+
+                </div>
+
+                <table class="table">
+                    <thead>
+                    <th>Quantity</th>
+                    <th>Dish</th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                    </thead>
+                    <tbody id="placeOrder"></tbody>
+
+                </table>
+
+            </div>
+
+
+        </div>
+        <div>
+
+        </div>
+        @using (Html.BeginForm("Create", "OnlineOrder", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <div id="footer" style="float:right"></div>
+            <div id="HiddenField">
+                @Html.Hidden("UserId", User.Identity.Name, new { @class = "UserID", name = "UserId" })
+            </div>
+        }
+    </div>
+
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/RMS/OrderOnline.js"></script>
+
+}

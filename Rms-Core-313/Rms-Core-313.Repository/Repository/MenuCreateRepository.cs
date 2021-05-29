@@ -17,6 +17,7 @@ namespace Rms_Core_313.Repository.Repository
         {
             Db = (ProjectDbContext)db;
         }
+		
         public bool Create(MenusCreate menus)
         {
             //using (BinaryReader br = new BinaryReader(menus.Images.OpenReadStream()))
